@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		43F945DD2C72377700599111 /* Cloudkit_sessionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F945DC2C72377700599111 /* Cloudkit_sessionApp.swift */; };
-		43F945DF2C72377700599111 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F945DE2C72377700599111 /* ContentView.swift */; };
 		43F945E12C72377800599111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43F945E02C72377800599111 /* Assets.xcassets */; };
 		43F945E42C72377800599111 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43F945E32C72377800599111 /* Preview Assets.xcassets */; };
 		43F945EE2C72377800599111 /* Cloudkit_sessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F945ED2C72377800599111 /* Cloudkit_sessionTests.swift */; };
 		43F945F82C72377800599111 /* Cloudkit_sessionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F945F72C72377800599111 /* Cloudkit_sessionUITests.swift */; };
 		43F945FA2C72377800599111 /* Cloudkit_sessionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F945F92C72377800599111 /* Cloudkit_sessionUITestsLaunchTests.swift */; };
+		43F9460F2C72397B00599111 /* codeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F9460E2C72397B00599111 /* codeViewModel.swift */; };
+		43F946112C7239EA00599111 /* createSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F946102C7239EA00599111 /* createSessionView.swift */; };
+		43F9461B2C72446800599111 /* checkuserVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F9461A2C72446800599111 /* checkuserVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		43F945D92C72377700599111 /* Cloudkit_session.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudkit_session.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F945DC2C72377700599111 /* Cloudkit_sessionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudkit_sessionApp.swift; sourceTree = "<group>"; };
-		43F945DE2C72377700599111 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43F945E02C72377800599111 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43F945E32C72377800599111 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43F945E92C72377800599111 /* Cloudkit_sessionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cloudkit_sessionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +45,10 @@
 		43F945F32C72377800599111 /* Cloudkit_sessionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cloudkit_sessionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F945F72C72377800599111 /* Cloudkit_sessionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudkit_sessionUITests.swift; sourceTree = "<group>"; };
 		43F945F92C72377800599111 /* Cloudkit_sessionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudkit_sessionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		43F946062C72378700599111 /* Cloudkit_session.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cloudkit_session.entitlements; sourceTree = "<group>"; };
+		43F9460E2C72397B00599111 /* codeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeViewModel.swift; sourceTree = "<group>"; };
+		43F946102C7239EA00599111 /* createSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createSessionView.swift; sourceTree = "<group>"; };
+		43F9461A2C72446800599111 /* checkuserVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkuserVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +99,11 @@
 		43F945DB2C72377700599111 /* Cloudkit_session */ = {
 			isa = PBXGroup;
 			children = (
+				43F946062C72378700599111 /* Cloudkit_session.entitlements */,
 				43F945DC2C72377700599111 /* Cloudkit_sessionApp.swift */,
-				43F945DE2C72377700599111 /* ContentView.swift */,
+				43F946092C7237F400599111 /* Model */,
+				43F946082C7237E800599111 /* ViewModel */,
+				43F946072C7237DA00599111 /* View */,
 				43F945E02C72377800599111 /* Assets.xcassets */,
 				43F945E22C72377800599111 /* Preview Content */,
 			);
@@ -125,6 +133,30 @@
 				43F945F92C72377800599111 /* Cloudkit_sessionUITestsLaunchTests.swift */,
 			);
 			path = Cloudkit_sessionUITests;
+			sourceTree = "<group>";
+		};
+		43F946072C7237DA00599111 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				43F946102C7239EA00599111 /* createSessionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		43F946082C7237E800599111 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				43F9460E2C72397B00599111 /* codeViewModel.swift */,
+				43F9461A2C72446800599111 /* checkuserVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		43F946092C7237F400599111 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43F945DF2C72377700599111 /* ContentView.swift in Sources */,
+				43F9461B2C72446800599111 /* checkuserVM.swift in Sources */,
+				43F946112C7239EA00599111 /* createSessionView.swift in Sources */,
+				43F9460F2C72397B00599111 /* codeViewModel.swift in Sources */,
 				43F945DD2C72377700599111 /* Cloudkit_sessionApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cloudkit_session/Cloudkit_session.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cloudkit_session/Preview Content\"";
@@ -448,6 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cloudkit_session/Cloudkit_session.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cloudkit_session/Preview Content\"";
