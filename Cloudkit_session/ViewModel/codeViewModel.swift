@@ -16,6 +16,50 @@ class CodeViewModel: ObservableObject {
     @Published var code: String = ""
     @Published var creatorUsername: String = ""
     @Published var currentCode: CodeModel?
+
+    // New Method: Fetch code with completion handler
+    func fetchCode(byCode code: String, completion: @escaping (Bool) -> Void) {
+        let predicate = NSPredicate(format: "code == %@", code)
+        let query = CKQuery(recordType: "Sessions", predicate: predicate)
+        let queryOperation = CKQueryOperation(query: query)
+
+        queryOperation.recordMatchedBlock = { [weak self] (returnedRecordID, returnedResult) in
+            switch returnedResult {
+            case .success(let record):
+                guard let code = record["code"] as? String,
+                      let creatorUsername = record["creatorUsername"] as? String,
+                      let creatorID = record["creatorID"] as? String,
+                      let users = record["users"] as? [String],
+                      let isClicked = record["isClicked"] as? Bool else { return }
+
+                DispatchQueue.main.async {
+                    self?.currentCode = CodeModel(code: code, creatorUsername: creatorUsername, creatorID: creatorID, users: users, isClicked: isClicked, record: record)
+                    completion(true) // Code found
+                }
+                
+            case .failure(let error):
+                print("Failed to fetch code: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    completion(false) // Code not found
+                }
+            }
+        }
+        addOperation(operation: queryOperation)
+    }
+
+    // New Method: Append user ID to session
+    func appendUserID(_ userID: String) {
+        guard var currentCodeModel = currentCode else { return }
+        
+        // Avoid duplicate entries
+        if !currentCodeModel.users.contains(userID) {
+            currentCodeModel.users.append(userID)
+            currentCodeModel.record["users"] = currentCodeModel.users
+
+            // Save updated record
+            saveCode(record: currentCodeModel.record)
+        }
+    }
     
     func addCode(newCode: String, creatorUsername: String, creatorID: String) {
         let newCodeRecord = CKRecord(recordType: "Sessions") // Changed to "Sessions"

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4359376D2C72E00A00536D95 /* joinsessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4359376C2C72E00A00536D95 /* joinsessionView.swift */; };
+		4359376F2C72E0C300536D95 /* homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4359376E2C72E0C300536D95 /* homepage.swift */; };
 		43F945DD2C72377700599111 /* Cloudkit_sessionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F945DC2C72377700599111 /* Cloudkit_sessionApp.swift */; };
 		43F945E12C72377800599111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43F945E02C72377800599111 /* Assets.xcassets */; };
 		43F945E42C72377800599111 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43F945E32C72377800599111 /* Preview Assets.xcassets */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4359376C2C72E00A00536D95 /* joinsessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joinsessionView.swift; sourceTree = "<group>"; };
+		4359376E2C72E0C300536D95 /* homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homepage.swift; sourceTree = "<group>"; };
 		43F945D92C72377700599111 /* Cloudkit_session.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudkit_session.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F945DC2C72377700599111 /* Cloudkit_sessionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudkit_sessionApp.swift; sourceTree = "<group>"; };
 		43F945E02C72377800599111 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				43F946102C7239EA00599111 /* createSessionView.swift */,
+				4359376C2C72E00A00536D95 /* joinsessionView.swift */,
+				4359376E2C72E0C300536D95 /* homepage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -293,6 +299,8 @@
 				43F946112C7239EA00599111 /* createSessionView.swift in Sources */,
 				43F9460F2C72397B00599111 /* codeViewModel.swift in Sources */,
 				43F945DD2C72377700599111 /* Cloudkit_sessionApp.swift in Sources */,
+				4359376D2C72E00A00536D95 /* joinsessionView.swift in Sources */,
+				4359376F2C72E0C300536D95 /* homepage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

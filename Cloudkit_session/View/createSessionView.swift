@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CodeInputView: View {
+struct CreateSessionView: View {
     @StateObject private var vm = CodeViewModel()
     @StateObject private var userStatusVM = checkUserStatusVM() // Initialize checkUserStatusVM
     
@@ -66,7 +66,7 @@ struct CodeInputView: View {
 }
 
 #Preview {
-    CodeInputView()
+    CreateSessionView()
 }
 
 
