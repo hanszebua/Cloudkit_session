@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject private var codeViewModel = CodeViewModel() // Initialize here
+
     var body: some View {
         NavigationView {
             VStack {
@@ -15,7 +17,8 @@ struct MainView: View {
                     .font(.largeTitle)
                     .padding()
 
-                NavigationLink(destination: CreateSessionView()) {
+                NavigationLink(destination: CreateSessionView()
+                                .environmentObject(codeViewModel)) { // Pass down environment object
                     Text("Create Session")
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -25,7 +28,8 @@ struct MainView: View {
                 }
                 .padding()
 
-                NavigationLink(destination: JoinSessionView()) {
+                NavigationLink(destination: JoinSessionView()
+                                .environmentObject(codeViewModel)) { // Pass down environment object
                     Text("Join Session")
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -43,3 +47,5 @@ struct MainView: View {
 #Preview {
     MainView()
 }
+
+

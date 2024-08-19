@@ -142,6 +142,28 @@ class CodeViewModel: ObservableObject {
     }
 }
 
+extension CodeViewModel {
+    func removeUserID(_ userID: String) {
+        guard let currentCode = currentCode else { return }
+        
+        var users = currentCode.users
+        if let index = users.firstIndex(of: userID) {
+            users.remove(at: index)
+            currentCode.record["users"] = users
+            saveCode(record: currentCode.record) // Save the updated record back to CloudKit
+            
+            // Update the currentCode with the new list of users
+            self.currentCode?.users = users
+        }
+    }
+}
+
+extension CodeViewModel {
+    func clearCurrentCode() {
+        self.currentCode = nil
+    }
+}
+
 
 
 

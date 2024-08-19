@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct CreateSessionView: View {
-    @StateObject private var vm = CodeViewModel()
-    @StateObject private var userStatusVM = checkUserStatusVM() // Initialize checkUserStatusVM
+    @EnvironmentObject var vm: CodeViewModel
+    @StateObject private var userStatusVM = checkUserStatusVM()
     
     @State private var inputCode: String = ""
     
@@ -67,6 +67,7 @@ struct CreateSessionView: View {
 
 #Preview {
     CreateSessionView()
+        .environmentObject(CodeViewModel()) // Preview needs environment object
 }
 
 
