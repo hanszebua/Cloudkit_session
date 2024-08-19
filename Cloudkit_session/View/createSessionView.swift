@@ -2,9 +2,9 @@ import SwiftUI
 
 struct CodeInputView: View {
     @StateObject private var vm = CodeViewModel()
+    @StateObject private var userStatusVM = checkUserStatusVM() // Initialize checkUserStatusVM
     
     @State private var inputCode: String = ""
-    @State private var inputUsername: String = ""
     
     var body: some View {
         VStack {
@@ -13,14 +13,12 @@ struct CodeInputView: View {
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(8)
             
-            TextField("Enter Your Username", text: $inputUsername)
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(8)
-            
             Button("Submit") {
-                let creatorID = UUID().uuidString // Assuming you generate a unique ID for each user
-                vm.addCode(newCode: inputCode, creatorUsername: inputUsername, creatorID: creatorID)
+                guard let creatorID = userStatusVM.userID?.recordName else {
+                    print("User ID not available")
+                    return
+                }
+                vm.addCode(newCode: inputCode, creatorUsername: userStatusVM.userName.description, creatorID: creatorID)
             }
             .padding()
             .background(Color.blue)
@@ -35,6 +33,24 @@ struct CodeInputView: View {
                         .font(.subheadline)
                     Text("Users: \(codeModel.users.joined(separator: ", "))")
                         .font(.subheadline)
+                    Text("Clicked: \(codeModel.isClicked ? "Yes" : "No")")
+                        .font(.subheadline)
+                    
+                    Button("Toggle Clicked Status") {
+                        vm.toggleIsClicked()
+                    }
+                    .padding()
+                    .background(Color.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                    
+                    Button("Delete Code") {
+                        vm.deleteCurrentCode()
+                    }
+                    .padding()
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
                 }
                 .padding()
             } else {
@@ -52,3 +68,5 @@ struct CodeInputView: View {
 #Preview {
     CodeInputView()
 }
+
+
